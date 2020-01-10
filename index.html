@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NPS API App</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <h2>National Park Search</h2>
+
+        <form id="js-form">
+            <label for="search-term">Search by State</label>
+            <input type="text" name="search-term" id="js-search-term"></input>
+            <label for="max-results">Maximum results</label>
+            <input type="number" name="max-results" id="js-max-results" value="10">
+            <input type="submit" value="Search!">
+        </form>
+
+        <p id="js-error-message" class="error-message"></p>
+
+        <section id="results" class="hidden">
+            <h3>Results</h3>
+            <ul id="results-list"></ul>
+        </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+.hidden {
+    display: none;
+  }
+  
+  html {
+    background-color: rgb(240, 255, 200);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .container {
+    margin: 15px;
+    padding: 10px;
+  }
+  
+  input {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .latlong {
+    font: bolder;
+  }
