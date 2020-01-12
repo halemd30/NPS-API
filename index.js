@@ -1,4 +1,4 @@
-let api_key = 'sgJJY0RpJbXNKMU1sqAwU9nBNvSpxq0D8VTFbLLj';
+let api_key = 'KdlpLOl9OcL7LJ9YjmK0YGStJfZ4MluknDwPphuy';
 let endpoint = 'https://developer.nps.gov/api/v1/parks';
 
 function getParks(searchTerm, maxResults=10) {
@@ -17,14 +17,14 @@ function getParks(searchTerm, maxResults=10) {
         return response.json();
       }
       throw new Error(response.statusText)
-    }) .then(responseJson => {
+    }) 
+    .then(responseJson => {
       displayResults(responseJson, maxResults)
       .catch(err => {
         $(`#js-error-message').text('Uh oh, something broke: ${err.message}`)
       })
     })
-} 
-
+}
 
 function displayResults(responseJson, maxResults) {
   console.log(responseJson);
@@ -32,18 +32,26 @@ function displayResults(responseJson, maxResults) {
   for (let i = 0; i < responseJson.data.length & i < maxResults; i++) {
     $('#results-list').append(
       `<li>
-      <h3><a href="${responseJson.data[i].url}">${responseJson.data[i].fullName}</a></h3>
-      <p class="latlong">${responseJson.data[i].latLong}</p>
-      <p>${responseJson.data[i].description}</p>
+        <h3><a href="${responseJson.data[i].url}">${responseJson.data[i].fullName}</a></h3>
+        <p class="latlong">${responseJson.data[i].latLong}</p>
+        <p>${responseJson.data[i].description}</p>
       </li>`
     );
-  } 
-
+    
+  }
   $('#results').removeClass("hidden");
   
 }
-
-
+// *** tried including the address for each park *** 
+    // for (let j = 0; j < responseJson.data.addresses.length; j++) {
+    //   $('#results-list').append(
+    //     `<li>
+    //       <h3>Address</h3>
+    //       <p class="address">${responseJson.addresses[j].city}, ${responseJson.addresses[j].stateCode}, ${responseJson.addresses[j].postalCode}</p>
+    //     </li`
+    //   )
+    // }
+        
 
 function watchForm() {
   $('form').submit(event => {
