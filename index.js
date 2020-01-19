@@ -1,6 +1,8 @@
 let api_key = 'KdlpLOl9OcL7LJ9YjmK0YGStJfZ4MluknDwPphuy';
 let endpoint = 'https://developer.nps.gov/api/v1/parks';
 
+
+
 function getParks(searchTerm, maxResults=10) {
   let params = {
     api_key: api_key,
@@ -20,10 +22,11 @@ function getParks(searchTerm, maxResults=10) {
     }) 
     .then(responseJson => {
       displayResults(responseJson, maxResults)
-      .catch(err => {
-        $(`#js-error-message').text('Uh oh, something broke: ${err.message}`)
-      })
     })
+    .catch(err => {
+      $('#js-error-message').text(`Uh oh, something broke: ${err.message}`);
+      console.log(err);
+    });
 }
 
 function displayResults(responseJson, maxResults) {
